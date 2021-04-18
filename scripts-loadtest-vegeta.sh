@@ -9,7 +9,7 @@ TYPE="hist[0,100ms,200ms,300ms]"
 
 #### OPTIONS ATTACK 🔪
 DURATION="5s"
-declare -a RATEs=("100" "500" "1000" "1500" "2000")
+declare -a RATEs=("100" "500" "1000")
 declare -a TARGETs=(
 	"GET https://account-management-service-logpost-stag-qjrfn6j7kq-as.a.run.app/account/healthcheck"
 	"GET https://shipper-management-service-logpost-stag-qjrfn6j7kq-as.a.run.app/shipper/healthcheck"
@@ -53,5 +53,7 @@ do
 	mv -f *$RATE-$DURATION*.html	plots/*$RATE-$DURATION*
 	mv -f *$RATE-$DURATION*.bin		results/*$RATE-$DURATION*
 	echo "#### ⭐️ Complete Loadtest" && echo "" && echo ""
+
+	sleep 10
 
 done
